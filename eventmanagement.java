@@ -147,13 +147,13 @@ public class EventManagementSystem {
         JFrame customerLoginFrame = new JFrame("Customer Login");
         customerLoginFrame.setSize(300, 200);
         JTextField usernameField = new JTextField();
-        JPasswordField passwordField = new JPasswordField();
+        JPasswordField passField = new JPasswordField();
         JButton loginButton = new JButton("Login");
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String username = usernameField.getText();
-                String password = new String(passwordField.getPassword());
-                if (username.equals("Prome") && password.equals("project")) {
+                String pass = new String(passField.getPass());
+                if (username.equals("Prome") && pass.equals("project")) {
                     showCustomerPanelFrame();
                 } else {
                     JOptionPane.showMessageDialog(customerLoginFrame, "Incorrect username or password!");
@@ -170,8 +170,8 @@ public class EventManagementSystem {
         customerLoginFrame.setLayout(new GridLayout(4, 2, 10, 10));
         customerLoginFrame.add(new JLabel("Username:"));
         customerLoginFrame.add(usernameField);
-        customerLoginFrame.add(new JLabel("Password:"));
-        customerLoginFrame.add(passwordField);
+        customerLoginFrame.add(new JLabel("Pass:"));
+        customerLoginFrame.add(passField);
         customerLoginFrame.add(new JLabel());
         customerLoginFrame.add(loginButton);
         customerLoginFrame.add(new JLabel());
@@ -275,7 +275,7 @@ public class EventManagementSystem {
         JFrame createAccountFrame = new JFrame("Create Account");
         createAccountFrame.setSize(300, 200);
         JTextField usernameField = new JTextField();
-        JPasswordField passwordField = new JPasswordField();
+        JPasswordField passField = new JPassField();
         JButton createAccountButton = new JButton("Create Account");
         createAccountButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
