@@ -167,46 +167,7 @@ public class EventManagementSystem {
                 mainFrame.setVisible(true);
             }
         });
-        customerLoginFrame.setLayout(new GridLayout(4, 2, 10, 10));
-        customerLoginFrame.add(new JLabel("Username:"));
-        customerLoginFrame.add(usernameField);
-        customerLoginFrame.add(new JLabel("Pass:"));
-        customerLoginFrame.add(passField);
-        customerLoginFrame.add(new JLabel());
-        customerLoginFrame.add(loginButton);
-        customerLoginFrame.add(new JLabel());
-        customerLoginFrame.add(backButton);
-        customerLoginFrame.setVisible(true);
-        mainFrame.setVisible(false);
-    }
-
-    private void showCustomerPanelFrame() {
-        JFrame customerPanelFrame = new JFrame("Customer Panel");
-        customerPanelFrame.setSize(400, 300);
-        JButton backButton = new JButton("Back");
-        backButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                customerPanelFrame.dispose();
-                mainFrame.setVisible(true);
-            }
-        });
-        JButton viewVenueButton = new JButton("View Venue");
-        viewVenueButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showVenueList(customerPanelFrame);
-            }
-        });
-        JButton viewAvailableVenueButton = new JButton("View Available Venue List");
-        viewAvailableVenueButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showAvailableVenueList(customerPanelFrame);
-            }
-        });
-        JButton bookEventButton = new JButton("Book Event");
-        bookEventButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                showEventBookingFrame();
-            }
+        
         });
         customerPanelFrame.setLayout(new GridLayout(5, 1, 10, 10));
         customerPanelFrame.add(viewVenueButton);
@@ -226,25 +187,7 @@ public class EventManagementSystem {
         JOptionPane.showMessageDialog(parentFrame, sb.toString(), "Venue List", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    private void showAvailableVenueList(JFrame parentFrame) {
-        StringBuilder sb = new StringBuilder();
-        for (String venue : availableVenueList) {
-            sb.append(venue).append("\n");
-        }
-        JOptionPane.showMessageDialog(parentFrame, sb.toString(), "Available Venue List", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-    private void showEventBookingFrame() {
-        JFrame eventBookingFrame = new JFrame("Event Booking");
-        eventBookingFrame.setSize(400, 300);
-        JTextField eventNameField = new JTextField();
-        JTextField eventDateField = new JTextField();
-        JButton bookEventButton = new JButton("Book Event");
-        bookEventButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                String eventName = eventNameField.getText();
-                String eventDate = eventDateField.getText();
-           
+   
                 bookingList.add("Event Name: " + eventName + ", Event Date: " + eventDate);
                 JOptionPane.showMessageDialog(eventBookingFrame, "Event booked successfully!");
                 eventNameField.setText("");
